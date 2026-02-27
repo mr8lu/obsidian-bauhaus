@@ -1,0 +1,416 @@
+/* =========================================================
+   BAUHAUS × MATERIAL 3
+   Mid-century Bauhaus palette + M3 tonal surfaces & geometry
+   Typeface: Jost (geometric sans — open source Futura homage)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* ─── SHARED DESIGN TOKENS ─── */
+.theme-light,
+.theme-dark {
+    /* Bauhaus Primary Colors — Refined, Not Loud */
+    --bauhaus-red: #DA3A2F;
+    --bauhaus-blue: #325D88;
+    --bauhaus-yellow: #E5A93B;
+    --bauhaus-black: #111111;
+    --bauhaus-white: #F4F1EA;
+    --bauhaus-gray: #CCCCCC;
+
+    /* Typography — Jost Geometric Sans */
+    --font-text: 'Jost', 'Futura', 'Avenir Next', Helvetica, sans-serif;
+    --font-interface: 'Jost', 'Futura', 'Avenir Next', Helvetica, sans-serif;
+    --font-monospace: 'JetBrains Mono', 'Courier New', monospace;
+
+    /* M3 Shape Scale */
+    --radius-s: 4px;
+    --radius-m: 8px;
+    --radius-l: 16px;
+    --radius-xl: 28px;
+
+    /* Tags use full pill shape */
+    --tag-radius: 9999px;
+
+    /* No harsh borders — rely on tonal surfaces */
+    --border-width: 0px;
+
+    /* Heading sizes — spacious & structural */
+    --h1-size: 2em;
+    --h2-size: 1.5em;
+    --h3-size: 1.25em;
+    --h4-size: 1.1em;
+    --h5-size: 1em;
+    --h6-size: 0.9em;
+}
+
+/* ─── LIGHT THEME ─── */
+.theme-light {
+    /* M3 Tonal Surfaces */
+    --background-primary: #F4F1EA;
+    /* Paper cream base */
+    --background-primary-alt: #FFFFFF;
+    /* Elevated surface */
+    --background-secondary: #EAE6DC;
+    /* Sidebar / nav surface */
+    --background-modifier-border: transparent;
+    --background-modifier-hover: rgba(17, 17, 17, 0.06);
+
+    /* Text */
+    --text-normal: #111111;
+    --text-muted: #6B6860;
+    --text-faint: #A09C96;
+    --text-on-accent: #FFFFFF;
+
+    /* Accent — Bauhaus Red as M3 Primary */
+    --interactive-accent: var(--bauhaus-red);
+    --interactive-accent-hover: #B82F24;
+
+    /* Headings */
+    --h1-color: var(--bauhaus-black);
+    --h2-color: var(--bauhaus-black);
+    --h3-color: var(--bauhaus-red);
+    --h4-color: var(--bauhaus-black);
+    --h5-color: var(--text-muted);
+    --h6-color: var(--text-muted);
+
+    /* Links */
+    --link-color: var(--bauhaus-blue);
+    --link-color-hover: var(--bauhaus-red);
+    --link-external-color: var(--bauhaus-blue);
+
+    /* Tags — M3 pill, Bauhaus accent fill */
+    --tag-color: var(--bauhaus-white);
+    --tag-background: var(--bauhaus-red);
+    --tag-background-hover: var(--bauhaus-black);
+
+    /* Graph */
+    --graph-text: var(--bauhaus-black);
+    --graph-line: rgba(17, 17, 17, 0.2);
+    --graph-node: var(--bauhaus-blue);
+    --graph-node-unresolved: var(--bauhaus-gray);
+    --graph-node-focused: var(--bauhaus-red);
+    --graph-node-tag: var(--bauhaus-yellow);
+    --graph-node-attachment: var(--bauhaus-black);
+
+    /* Checkbox */
+    --checkbox-color: var(--bauhaus-red);
+    --checkbox-color-hover: var(--bauhaus-black);
+    --checkbox-border-color: #AAAAAA;
+}
+
+/* ─── DARK THEME ─── */
+.theme-dark {
+    /* M3 Tonal Surfaces — deep, near-black */
+    --background-primary: #111111;
+    /* Base surface */
+    --background-primary-alt: #1C1C1C;
+    /* Elevated card surface */
+    --background-secondary: #181818;
+    /* Sidebar surface */
+    --background-modifier-border: transparent;
+    --background-modifier-hover: rgba(244, 241, 234, 0.07);
+
+    /* Text */
+    --text-normal: #F0EDE6;
+    --text-muted: #9B9891;
+    --text-faint: #636059;
+    --text-on-accent: #111111;
+
+    /* Accent — Bauhaus Yellow as M3 Primary in dark */
+    --interactive-accent: var(--bauhaus-yellow);
+    --interactive-accent-hover: #C98E25;
+
+    /* Headings — Yellow for h1/h2, warm for body */
+    --h1-color: var(--bauhaus-yellow);
+    --h2-color: var(--bauhaus-yellow);
+    --h3-color: var(--bauhaus-red);
+    --h4-color: var(--text-normal);
+    --h5-color: var(--text-muted);
+    --h6-color: var(--text-muted);
+
+    /* Links */
+    --link-color: #5B9BD5;
+    --link-color-hover: var(--bauhaus-yellow);
+    --link-external-color: #5B9BD5;
+
+    /* Tags — Bauhaus red pill */
+    --tag-color: var(--bauhaus-white);
+    --tag-background: var(--bauhaus-red);
+    --tag-background-hover: #B82F24;
+
+    /* Graph */
+    --graph-text: var(--bauhaus-white);
+    --graph-line: rgba(244, 241, 234, 0.25);
+    --graph-node: var(--bauhaus-red);
+    --graph-node-unresolved: #404040;
+    --graph-node-focused: var(--bauhaus-yellow);
+    --graph-node-tag: var(--bauhaus-yellow);
+    --graph-node-attachment: var(--bauhaus-white);
+
+    /* Checkbox */
+    --checkbox-color: var(--bauhaus-yellow);
+    --checkbox-color-hover: var(--bauhaus-white);
+    --checkbox-border-color: #444444;
+}
+
+/* =========================================================
+   TYPOGRAPHY — Jost, Geometric, Expressive
+   ========================================================= */
+
+body {
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Headings: Structural, bold, uppercase for h1 */
+.markdown-rendered h1,
+.cm-header-1 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 2em;
+    padding-bottom: 0.4em;
+    border-bottom: 2px solid var(--bauhaus-yellow);
+}
+
+.markdown-rendered h2,
+.cm-header-2 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-top: 1.75em;
+}
+
+.markdown-rendered h3,
+.cm-header-3 {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.markdown-rendered h4,
+.cm-header-4 {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   LAYOUT — M3 Tonal Surfaces, No Harsh Borders
+   ========================================================= */
+
+/* Remove all structural borders — tonal surfaces do the work */
+.workspace-leaf-content,
+.workspace-ribbon,
+.workspace-tab-header-container,
+.nav-header,
+.workspace-split,
+.workspace-tabs {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Sidebar surface */
+.nav-folder-title,
+.nav-file-title {
+    border-radius: var(--radius-m) !important;
+    padding: 4px 10px;
+    transition: background 0.15s ease;
+}
+
+.nav-folder-title:hover,
+.nav-file-title:hover {
+    background: var(--background-modifier-hover);
+}
+
+.nav-file-title.is-active {
+    background: var(--background-modifier-hover);
+    font-weight: 600;
+    color: var(--text-normal);
+}
+
+/* =========================================================
+   TAGS — Full Pill Shapes (Material 3 Chip Style)
+   ========================================================= */
+
+.tag {
+    border-radius: 9999px !important;
+    border: none !important;
+    font-family: var(--font-interface);
+    font-weight: 600;
+    font-size: 0.72em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2em 0.7em;
+    transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.tag:hover {
+    opacity: 0.85;
+}
+
+/* =========================================================
+   BUTTONS — M3 Style, Bauhaus Color
+   ========================================================= */
+
+button,
+.mod-cta {
+    font-family: var(--font-interface) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    border-radius: 9999px !important;
+    border: none !important;
+    box-shadow: none !important;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+button:hover,
+.mod-cta:hover {
+    opacity: 0.85;
+}
+
+button:active,
+.mod-cta:active {
+    transform: scale(0.97);
+}
+
+/* =========================================================
+   INPUTS & SEARCH — M3 Filled Text Fields
+   ========================================================= */
+
+input[type="text"],
+input[type="password"],
+textarea,
+.search-input-container input {
+    border-radius: var(--radius-l) !important;
+    border: none !important;
+    background: var(--background-primary-alt) !important;
+    color: var(--text-normal);
+    padding: 8px 16px;
+    transition: box-shadow 0.15s ease;
+}
+
+input[type="text"]:focus,
+.search-input-container input:focus {
+    box-shadow: 0 0 0 2px var(--interactive-accent);
+}
+
+/* =========================================================
+   CHECKBOXES — Geometric Square, Bauhaus Accent
+   ========================================================= */
+
+input[type="checkbox"] {
+    border-radius: var(--radius-s) !important;
+    appearance: none;
+    width: 1.1em;
+    height: 1.1em;
+    background-color: transparent;
+    border: 1.5px solid var(--checkbox-border-color) !important;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--checkbox-color);
+    border-color: var(--checkbox-color) !important;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.5em;
+    height: 0.5em;
+    background-color: var(--background-primary);
+    transform: translate(-50%, -50%);
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+/* =========================================================
+   CALLOUTS — Bauhaus Color Blocking, M3 Surface
+   ========================================================= */
+
+.callout {
+    border-radius: var(--radius-l) !important;
+    border: none !important;
+    border-left: 4px solid var(--callout-color) !important;
+    background-color: var(--background-primary-alt);
+    padding: 16px 20px;
+}
+
+/* =========================================================
+   BLOCKQUOTES — Strong Bauhaus Accent Line
+   ========================================================= */
+
+.markdown-rendered blockquote {
+    border-left: 3px solid var(--bauhaus-red) !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    background-color: var(--background-primary-alt);
+    border-radius: 0 var(--radius-m) var(--radius-m) 0 !important;
+    padding: 12px 20px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   CODE BLOCKS — Clean Monospace on Tonal Surface
+   ========================================================= */
+
+code,
+.cm-inline-code {
+    border-radius: var(--radius-s) !important;
+    font-family: var(--font-monospace);
+    font-size: 0.88em;
+    padding: 0.1em 0.4em;
+    background: var(--background-primary-alt);
+    border: none !important;
+}
+
+pre code {
+    border-radius: var(--radius-m) !important;
+    padding: 1em 1.25em;
+}
+
+/* =========================================================
+   LINKS — Bauhaus Blue, Red on Hover
+   ========================================================= */
+
+a.internal-link,
+a.external-link {
+    transition: color 0.15s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a.internal-link:hover,
+a.external-link:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--link-color-hover);
+}
+
+/* =========================================================
+   SCROLLBAR — Minimal, Fades Away
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bauhaus-gray);
+    border-radius: 9999px;
+    opacity: 0.5;
+}
