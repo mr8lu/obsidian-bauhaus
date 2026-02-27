@@ -12,7 +12,9 @@ A **clean**, **modern**, and **minimalistic** Bauhaus-styled theme for [Obsidian
 
 ### Graph View
 Collaborative and structured visualization.
+
 ![Light Graph](screenshot_graph_light.png)
+
 ![Dark Graph](screenshot_graph_dark.png)
 
 Inspired by the iconic Bauhaus movement, this theme focuses on geometric precision, primary color accents, and functional design. Built with Material 3 principles, it offers a distraction-free writing environment that is both aesthetically pleasing and highly legible.
