@@ -2,6 +2,11 @@
 
 All notable changes to the **Bauhaus** Obsidian theme will be documented in this file.
 
+## [1.0.1] - 2026-03-25
+
+### Changed
+- Updated copyright holder's name in the MIT license.
+
 ## [1.0.0] - 2026-02-27
 
 ### Added
